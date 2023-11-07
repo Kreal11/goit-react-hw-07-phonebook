@@ -17,7 +17,9 @@ export const StyledOneContactLi = styled.li`
   transition: scale 1s;
 
   &:hover {
-    scale: 1.18;
+    scale: 1.15;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
   }
 
   div {
@@ -32,6 +34,20 @@ export const StyledOneContactLi = styled.li`
     font-size: 17px;
     text-align: center;
     word-wrap: break-word;
+  }
+
+  @keyframes pulse512 {
+    0% {
+      box-shadow: 0 0 0 0 #cea2fd;
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
   }
 `;
 
