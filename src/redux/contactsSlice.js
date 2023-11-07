@@ -37,6 +37,7 @@ const contactsSlice = createSlice({
       })
       .addCase(addContactThunk.fulfilled, (state, { payload }) => {
         state.contacts.items.push(payload);
+        state.contacts.isLoading = false;
       })
       .addMatcher(
         isAnyOf(

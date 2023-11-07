@@ -45,6 +45,7 @@ export const AddContact = () => {
             {...register('name')}
             id="addName"
             required
+            placeholder="Enter the name"
           />
         </StyledAddContactInputWrapper>
         <StyledAddContactLabel htmlFor="addNumber">

@@ -20,9 +20,7 @@ export const SearchContacts = () => {
   return (
     <StyledSearchWrapper>
       <StyledContactsHeader>Contacts</StyledContactsHeader>
-      <StyledSearchLabel htmlFor="filter">
-        Find contacts by name👇
-      </StyledSearchLabel>
+      <StyledSearchLabel htmlFor="filter">Find contacts👇</StyledSearchLabel>
       <StyledInputSearchWrapper>
         <StyledSearchInput
           id="filter"
@@ -30,6 +28,7 @@ export const SearchContacts = () => {
           name="name"
           value={filter}
           onChange={handleChangeFilter}
+          placeholder="Enter name or number"
         />
       </StyledInputSearchWrapper>
     </StyledSearchWrapper>
