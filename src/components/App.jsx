@@ -38,7 +38,8 @@ export const App = () => {
           <StyledPlug>There are no contacts yet😭</StyledPlug>
         )}
         {error && <h2>{error}</h2>}
-        {loading ? <Loader /> : <AllContacts />}
+        {loading && <Loader />}
+        <AllContacts />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const Loader = () => {
 };
 
 const LoaderWrapper = styled.div`
-  margin-top: 20px;
+  margin: 30px 0px;
   display: flex;
   justify-content: center;
 `;
