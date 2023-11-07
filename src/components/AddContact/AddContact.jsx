@@ -14,7 +14,7 @@ import { selectContacts } from 'redux/selectors';
 
 export const AddContact = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const contacts = useSelector(selectContacts);
 
   const submit = ({ name, number }) => {
@@ -33,6 +33,7 @@ export const AddContact = () => {
       return toast.warning('Please, enter numbers for the phone form');
     }
     dispatch(addContactThunk({ name, number }));
+    reset();
   };
 
   return (

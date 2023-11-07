@@ -5,6 +5,7 @@ import {
 } from './OneContact.styled';
 import PropTypes from 'prop-types';
 import { selectDeletedId, selectIsLoading } from 'redux/selectors';
+import styled from 'styled-components';
 
 export const OneContact = ({ id, name, number, deleteContact }) => {
   const loading = useSelector(selectIsLoading);
@@ -12,8 +13,10 @@ export const OneContact = ({ id, name, number, deleteContact }) => {
 
   return (
     <StyledOneContactLi>
-      <p>{name}:</p>
-      <p>{number}</p>
+      <div>
+        <p>{name}:</p>
+        <p>{number}</p>
+      </div>
       {loading && deletedId === id ? (
         <OneContactDeleteButton>Deleting...</OneContactDeleteButton>
       ) : (

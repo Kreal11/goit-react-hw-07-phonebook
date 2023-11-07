@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledOneContactLi = styled.li`
-  padding: 20px 10px 10px;
+  padding: 10px;
   background: linear-gradient(
     to bottom,
     rgb(227, 213, 255),
@@ -9,11 +9,30 @@ export const StyledOneContactLi = styled.li`
   );
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  min-width: 110px;
-  min-height: 90px;
+  min-width: 120px;
+  min-height: 130px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: stretch;
+  transition: scale 1s;
+
+  &:hover {
+    scale: 1.18;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  p {
+    max-width: 120px;
+    font-size: 17px;
+    text-align: center;
+    word-wrap: break-word;
+  }
 `;
 
 export const OneContactDeleteButton = styled.button`
