@@ -1,17 +1,26 @@
+import { useSelector } from 'react-redux';
 import {
   OneContactDeleteButton,
   StyledOneContactLi,
 } from './OneContact.styled';
 import PropTypes from 'prop-types';
+import { selectDeletedId, selectIsLoading } from 'redux/selectors';
 
 export const OneContact = ({ id, name, number, deleteContact }) => {
+  const loading = useSelector(selectIsLoading);
+  const deletedId = useSelector(selectDeletedId);
+
   return (
     <StyledOneContactLi>
       <p>{name}:</p>
       <p>{number}</p>
-      <OneContactDeleteButton type="button" onClick={() => deleteContact(id)}>
-        Delete contact
-      </OneContactDeleteButton>
+      {loading && deletedId === id ? (
+        <OneContactDeleteButton>Deleting...</OneContactDeleteButton>
+      ) : (
+        <OneContactDeleteButton type="button" onClick={() => deleteContact(id)}>
+          Delete contact
+        </OneContactDeleteButton>
+      )}
     </StyledOneContactLi>
   );
 };

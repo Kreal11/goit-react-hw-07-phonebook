@@ -3,17 +3,25 @@ import { AllContacts } from './AllContacts/AllContacts';
 import { SearchContacts } from './SearchContact/SearchContact';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts, selectError } from 'redux/selectors';
 import { useEffect } from 'react';
 import { fetchContactsThunk } from 'redux/operations';
+import { toast } from 'react-toastify';
 
 export const App = () => {
-  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContactsThunk());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      toast.error('Oops, something went wrong');
+    }
+  }, [error]);
 
   return (
     <div
@@ -31,11 +39,11 @@ export const App = () => {
       <div>
         <AddContact />
         <SearchContacts />
-        {!contacts.length ? (
+        {!contacts.length && !error && (
           <StyledPlug>There are no contacts yet😭</StyledPlug>
-        ) : (
-          <AllContacts />
         )}
+        {error && <h2>{error}</h2>}
+        <AllContacts />
       </div>
     </div>
   );

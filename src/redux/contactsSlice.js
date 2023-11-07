@@ -4,19 +4,25 @@ import {
   fetchContactsThunk,
 } from './operations';
 
-const { createSlice } = require('@reduxjs/toolkit');
+const { createSlice, isAnyOf } = require('@reduxjs/toolkit');
 
 const initialState = {
   contacts: {
     items: [],
     isLoading: false,
     error: null,
+    deletedId: null,
   },
 };
 
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {
+    setCurrentId: (state, { payload }) => {
+      state.contacts.deletedId = payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchContactsThunk.fulfilled, (state, { payload }) => {
@@ -31,8 +37,31 @@ const contactsSlice = createSlice({
       })
       .addCase(addContactThunk.fulfilled, (state, { payload }) => {
         state.contacts.items.push(payload);
-      });
+      })
+      .addMatcher(
+        isAnyOf(
+          fetchContactsThunk.pending,
+          deleteContactThunk.pending,
+          addContactThunk.pending
+        ),
+        (state, { payload }) => {
+          state.contacts.isLoading = true;
+          state.contacts.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchContactsThunk.rejected,
+          deleteContactThunk.rejected,
+          addContactThunk.rejected
+        ),
+        (state, { payload }) => {
+          state.contacts.error = payload;
+          state.contacts.isLoading = false;
+        }
+      );
   },
 });
 
+export const { setCurrentId } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
