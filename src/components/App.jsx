@@ -2,11 +2,18 @@ import { AddContact } from './AddContact/AddContact';
 import { AllContacts } from './AllContacts/AllContacts';
 import { SearchContacts } from './SearchContact/SearchContact';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
+import { useEffect } from 'react';
+import { fetchContactsThunk } from 'redux/operations';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContactsThunk());
+  }, [dispatch]);
 
   return (
     <div

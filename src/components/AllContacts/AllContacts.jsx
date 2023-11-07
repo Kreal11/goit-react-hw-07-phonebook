@@ -2,7 +2,7 @@ import { OneContact } from 'components/OneContact/OneContact';
 import { StyledAllContactsUl } from './AllContacts.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContactThunk } from 'redux/operations';
 
 export const AllContacts = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ export const AllContacts = () => {
           <OneContact
             key={contact.id}
             {...contact}
-            deleteContact={() => dispatch(deleteContact(contact.id))}
+            deleteContact={() => dispatch(deleteContactThunk(contact.id))}
           />
         );
       })}

@@ -8,7 +8,8 @@ import {
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { addContact } from 'redux/contactsSlice';
+// import { addContact } from 'redux/contactsSlice';
+import { addContactThunk } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
 
 export const AddContact = () => {
@@ -31,7 +32,7 @@ export const AddContact = () => {
     if (!parseInt(number)) {
       return toast.warning('Please, enter numbers for the phone form');
     }
-    dispatch(addContact(name, number));
+    dispatch(addContactThunk({ name, number }));
   };
 
   return (
