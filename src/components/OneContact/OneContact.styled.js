@@ -38,7 +38,7 @@ export const StyledOneContactLi = styled.li`
 
   @keyframes pulse512 {
     0% {
-      box-shadow: 0 0 0 0 #cea2fd;
+      box-shadow: 0 0 0 0 #800080;
     }
 
     70% {
