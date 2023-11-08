@@ -1,16 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   OneContactDeleteButton,
   StyledOneContactLi,
 } from './OneContact.styled';
 import PropTypes from 'prop-types';
-import {
-  selectDeletedId,
-  selectIsEditing,
-  selectIsLoading,
-} from 'redux/selectors';
-import { EditContactThunk } from 'redux/operations';
-import { changeIsEditing } from 'redux/contactsSlice';
+import { selectDeletedId, selectIsLoading } from 'redux/selectors';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/Modal/Modal';
 import styled from 'styled-components';
@@ -18,7 +12,6 @@ import styled from 'styled-components';
 export const OneContact = ({ id, name, number, deleteContact }) => {
   const loading = useSelector(selectIsLoading);
   const deletedId = useSelector(selectDeletedId);
-  const dispatch = useDispatch();
 
   const { isOpen, openModal, closeModal } = useModal();
 
@@ -41,7 +34,9 @@ export const OneContact = ({ id, name, number, deleteContact }) => {
           </OneContactDeleteButton>
         )}
       </StyledOneContactLi>
-      {isOpen ? <Modal close={closeModal} name={name} number={number} /> : null}
+      {isOpen ? (
+        <Modal close={closeModal} name={name} number={number} id={id} />
+      ) : null}
     </>
   );
 };

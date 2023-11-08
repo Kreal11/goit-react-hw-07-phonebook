@@ -2,16 +2,23 @@ import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { StyledWrapperModal, StyledWrapperOverlay } from './StyledModal';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { EditContactThunk } from 'redux/operations';
 
-const Modal = ({ close, name, number }) => {
-  const { register, handleSubmit, reset } = useForm({
+const Modal = ({ close, name, number, id }) => {
+  const dispatch = useDispatch();
+
+  const { register, handleSubmit } = useForm({
     defaultValues: {
       name,
       number,
     },
   });
 
-  const submit = () => {};
+  const submit = ({ name, number }) => {
+    dispatch(EditContactThunk({ name, number, id }));
+    close();
+  };
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -39,7 +46,7 @@ const Modal = ({ close, name, number }) => {
     <StyledWrapperOverlay onClick={handleClickOut}>
       <StyledWrapperModal>
         <button onClick={close}>✖️</button>
-        <form action="">
+        <form action="" onSubmit={handleSubmit(submit)}>
           <input
             {...register('name')}
             type="text"
