@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { StyledWrapperModal, StyledWrapperOverlay } from './StyledModal';
+import {
+  StyledModalForm,
+  StyledWrapperModal,
+  StyledWrapperOverlay,
+} from './StyledModal';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { EditContactThunk } from 'redux/operations';
@@ -45,8 +49,11 @@ const Modal = ({ close, name, number, id }) => {
   return (
     <StyledWrapperOverlay onClick={handleClickOut}>
       <StyledWrapperModal>
-        <button onClick={close}>✖️</button>
-        <form action="" onSubmit={handleSubmit(submit)}>
+        <div>
+          <h2>Edit your contact now!</h2>
+          <p>(without sms and registration)</p>
+        </div>
+        <StyledModalForm action="" onSubmit={handleSubmit(submit)}>
           <input
             {...register('name')}
             type="text"
@@ -57,8 +64,11 @@ const Modal = ({ close, name, number, id }) => {
             type="tel"
             placeholder="Enter new phone number"
           />
-          <button>Change contact</button>
-        </form>
+          <div>
+            <button>Save</button>
+            <button onClick={close}>Cancel</button>
+          </div>
+        </StyledModalForm>
       </StyledWrapperModal>
     </StyledWrapperOverlay>
   );

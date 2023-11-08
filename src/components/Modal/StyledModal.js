@@ -12,14 +12,22 @@ export const StyledWrapperOverlay = styled.div`
 `;
 
 export const StyledWrapperModal = styled.div`
-  width: 700px;
-  height: 475px;
-  position: relative;
-  background-color: white;
+  width: 250px;
+  height: 250px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    to bottom,
+    rgb(227, 213, 255),
+    rgb(255, 231, 231)
+  );
   display: flex;
   flex-direction: column;
-  gap: 10px;
   justify-content: center;
+  align-items: center;
+  gap: 40px;
   padding: 20px;
   overflow: hidden;
   max-width: 1000px;
@@ -32,13 +40,39 @@ export const StyledWrapperModal = styled.div`
   }
   button {
     color: black;
-    font-weight: bold;
-    position: absolute;
-    top: 1px;
-    right: 1px;
     background-color: transparent;
     border: none;
     font-size: 20px;
     cursor: pointer;
+  }
+`;
+
+export const StyledModalForm = styled.form`
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  input {
+    height: 30px;
+    border: none;
+    outline: none;
+    caret-color: rgb(255, 81, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding-left: 10px;
+    letter-spacing: 0.8px;
+    color: rgb(19, 19, 19);
+    font-size: 15.3px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    & button {
+      &:hover {
+        color: white;
+      }
+    }
   }
 `;

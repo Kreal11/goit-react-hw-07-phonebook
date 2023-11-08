@@ -10,7 +10,7 @@ export const StyledOneContactLi = styled.li`
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   min-width: 130px;
-  min-height: 140px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
