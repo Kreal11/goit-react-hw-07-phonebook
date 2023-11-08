@@ -30,8 +30,7 @@ export const StyledWrapperModal = styled.div`
   gap: 40px;
   padding: 20px;
   overflow: hidden;
-  max-width: 1000px;
-  border-radius: 5px;
+  border-radius: 10px;
   img {
     display: block;
     width: 100%;
@@ -70,9 +69,19 @@ export const StyledModalForm = styled.form`
     display: flex;
     justify-content: space-between;
     button {
-      border: 1px;
-      border-radius: 5px;
+      border: 1px solid;
+      border-radius: 10px;
+      padding: 5px 15px;
+      transition: background-color 0.2s, color 0.2s;
+
       &:hover {
+        background-color: ${props =>
+          props.$color === 'green' ? 'rgb(0, 128, 0)' : 'rgb(255, 81, 0)'};
+        color: white;
+      }
+
+      &:active {
+        background-color: rgb(190, 61, 0);
         color: white;
       }
     }

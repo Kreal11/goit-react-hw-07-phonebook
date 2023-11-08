@@ -65,8 +65,10 @@ const Modal = ({ close, name, number, id }) => {
             placeholder="Enter new phone number"
           />
           <div>
-            <button>Save</button>
-            <button onClick={close}>Cancel</button>
+            <button $color="green">Save</button>
+            <button $color="red" onClick={close}>
+              Cancel
+            </button>
           </div>
         </StyledModalForm>
       </StyledWrapperModal>
