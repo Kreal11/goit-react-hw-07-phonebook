@@ -1,7 +1,7 @@
 import {
-  EditContactThunk,
   addContactThunk,
   deleteContactThunk,
+  editContactThunk,
   fetchContactsThunk,
 } from './operations';
 
@@ -42,17 +42,19 @@ const contactsSlice = createSlice({
         state.contacts.items.push(payload);
         state.contacts.isLoading = false;
       })
-      .addCase(EditContactThunk.fulfilled, (state, { payload }) => {
+      .addCase(editContactThunk.fulfilled, (state, { payload }) => {
         const contactIndex = state.contacts.items.findIndex(
           item => item.id === payload.id
         );
         state.contacts.items[contactIndex] = payload;
+        state.contacts.isLoading = false;
       })
       .addMatcher(
         isAnyOf(
           fetchContactsThunk.pending,
           deleteContactThunk.pending,
-          addContactThunk.pending
+          addContactThunk.pending,
+          editContactThunk.pending
         ),
         (state, { payload }) => {
           state.contacts.isLoading = true;
@@ -63,7 +65,8 @@ const contactsSlice = createSlice({
         isAnyOf(
           fetchContactsThunk.rejected,
           deleteContactThunk.rejected,
-          addContactThunk.rejected
+          addContactThunk.rejected,
+          editContactThunk.rejected
         ),
         (state, { payload }) => {
           state.contacts.error = payload;

@@ -69,7 +69,9 @@ export const StyledModalForm = styled.form`
   div {
     display: flex;
     justify-content: space-between;
-    & button {
+    button {
+      border: 1px;
+      border-radius: 5px;
       &:hover {
         color: white;
       }

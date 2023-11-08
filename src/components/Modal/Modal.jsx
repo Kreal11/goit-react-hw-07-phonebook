@@ -7,7 +7,7 @@ import {
 } from './StyledModal';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { EditContactThunk } from 'redux/operations';
+import { editContactThunk } from 'redux/operations';
 
 const Modal = ({ close, name, number, id }) => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Modal = ({ close, name, number, id }) => {
   });
 
   const submit = ({ name, number }) => {
-    dispatch(EditContactThunk({ name, number, id }));
+    dispatch(editContactThunk({ name, number, id }));
     close();
   };
 

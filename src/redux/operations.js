@@ -41,7 +41,7 @@ export const addContactThunk = createAsyncThunk(
   }
 );
 
-export const EditContactThunk = createAsyncThunk(
+export const editContactThunk = createAsyncThunk(
   'editContact',
   async (body, thunkApi) => {
     try {
