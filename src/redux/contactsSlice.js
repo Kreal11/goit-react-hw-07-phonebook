@@ -1,4 +1,5 @@
 import {
+  EditContactThunk,
   addContactThunk,
   deleteContactThunk,
   fetchContactsThunk,
@@ -12,6 +13,7 @@ const initialState = {
     isLoading: false,
     error: null,
     deletedId: null,
+    isEditing: false,
   },
 };
 
@@ -23,6 +25,7 @@ const contactsSlice = createSlice({
       state.contacts.deletedId = payload;
     },
   },
+
   extraReducers: builder => {
     builder
       .addCase(fetchContactsThunk.fulfilled, (state, { payload }) => {
@@ -38,6 +41,12 @@ const contactsSlice = createSlice({
       .addCase(addContactThunk.fulfilled, (state, { payload }) => {
         state.contacts.items.push(payload);
         state.contacts.isLoading = false;
+      })
+      .addCase(EditContactThunk.fulfilled, (state, { payload }) => {
+        const contactIndex = state.contacts.items.findIndex(
+          item => item.id === payload.id
+        );
+        state.contacts.items[contactIndex] = payload;
       })
       .addMatcher(
         isAnyOf(
@@ -64,5 +73,5 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { setCurrentId } = contactsSlice.actions;
+export const { setCurrentId, changeIsEditing } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

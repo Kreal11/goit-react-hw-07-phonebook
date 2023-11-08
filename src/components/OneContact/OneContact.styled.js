@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledOneContactLi = styled.li`
-  padding: 10px;
+  padding: 5px;
   background: linear-gradient(
     to bottom,
     rgb(227, 213, 255),
@@ -9,8 +9,8 @@ export const StyledOneContactLi = styled.li`
   );
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  min-width: 120px;
-  min-height: 130px;
+  min-width: 130px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -26,12 +26,12 @@ export const StyledOneContactLi = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
   }
 
   p {
     max-width: 120px;
-    font-size: 17px;
+    font-size: 16px;
     text-align: center;
     word-wrap: break-word;
   }
