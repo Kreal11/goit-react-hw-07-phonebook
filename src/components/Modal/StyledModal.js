@@ -49,7 +49,7 @@ export const StyledWrapperModal = styled.div`
     }
 
     70% {
-      box-shadow: 0 0 0 20px rgb(218 103 68 / 0%);
+      box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
     }
 
     100% {
