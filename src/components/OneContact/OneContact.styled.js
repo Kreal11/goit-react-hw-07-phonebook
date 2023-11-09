@@ -31,7 +31,7 @@ export const StyledOneContactLi = styled.li`
 
   p {
     max-width: 120px;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     word-wrap: break-word;
   }
