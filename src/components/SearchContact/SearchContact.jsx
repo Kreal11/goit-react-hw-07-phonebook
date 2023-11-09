@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   StyledSearchWrapper,
   StyledSearchLabel,
-  StyledContactsHeader,
   StyledSearchInput,
   StyledInputSearchWrapper,
 } from './SearchContact.styled';
@@ -19,7 +18,6 @@ export const SearchContacts = () => {
 
   return (
     <StyledSearchWrapper>
-      <StyledContactsHeader>Contacts</StyledContactsHeader>
       <StyledSearchLabel htmlFor="filter">Find contacts👇</StyledSearchLabel>
       <StyledInputSearchWrapper>
         <StyledSearchInput

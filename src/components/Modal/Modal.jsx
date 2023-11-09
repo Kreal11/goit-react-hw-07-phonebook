@@ -83,6 +83,13 @@ const Modal = ({ close, name, number, id }) => {
 
 const HeaderModalWrapper = styled.div`
   text-align: center;
+
+  h2 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 16px;
+  }
 `;
 
 export default Modal;

@@ -42,6 +42,23 @@ export const StyledWrapperModal = styled.div`
     font-size: 20px;
     cursor: pointer;
   }
+
+  @keyframes pulse512 {
+    0% {
+      box-shadow: 0 0 0 0 #800080;
+    }
+
+    70% {
+      box-shadow: 0 0 0 20px rgb(218 103 68 / 0%);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+  }
+
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse512 1.5s infinite;
 `;
 
 export const StyledModalForm = styled.form`

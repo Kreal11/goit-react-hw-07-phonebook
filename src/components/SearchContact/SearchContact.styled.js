@@ -8,15 +8,6 @@ export const StyledSearchWrapper = styled.div`
   margin-bottom: 15px;
 `;
 
-export const StyledContactsHeader = styled.h2`
-  text-transform: uppercase;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  letter-spacing: 1px;
-  line-height: 1.2;
-  font-size: 25px;
-  text-align: center;
-`;
-
 export const StyledSearchLabel = styled.label`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
