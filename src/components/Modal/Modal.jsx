@@ -11,6 +11,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { editContactThunk } from 'redux/operations';
+import styled from 'styled-components';
 
 const rootModal = document.querySelector('#modal');
 
@@ -54,18 +55,18 @@ const Modal = ({ close, name, number, id }) => {
   return ReactDOM.createPortal(
     <StyledWrapperOverlay onClick={handleClickOut}>
       <StyledWrapperModal>
-        <div>
+        <HeaderModalWrapper>
           <h2>Edit your contact now!</h2>
           <p>(without sms and registration)</p>
-        </div>
+        </HeaderModalWrapper>
         <StyledModalForm action="" onSubmit={handleSubmit(submit)}>
           <input
-            {...register('name')}
+            {...register('name', { required: true })}
             type="text"
             placeholder="Enter new name"
           />
           <input
-            {...register('number')}
+            {...register('number', { required: true })}
             type="tel"
             placeholder="Enter new phone number"
           />
@@ -79,5 +80,9 @@ const Modal = ({ close, name, number, id }) => {
     rootModal
   );
 };
+
+const HeaderModalWrapper = styled.div`
+  text-align: center;
+`;
 
 export default Modal;

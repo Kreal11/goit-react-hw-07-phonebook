@@ -68,3 +68,30 @@ export const OneContactDeleteButton = styled.button`
     transform: scale(0.95);
   }
 `;
+
+export const StyledSpanModal = styled.span`
+  cursor: pointer;
+  font-size: 16px;
+  @keyframes wiggle {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: rotateZ(8deg);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    75% {
+      transform: rotateZ(-8deg);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  &:hover {
+    color: white;
+    animation: wiggle 0.5s ease infinite;
+  }
+`;

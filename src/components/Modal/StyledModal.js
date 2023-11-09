@@ -9,15 +9,16 @@ export const StyledWrapperOverlay = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
+  /* min-height: 100vh; */
 `;
 
 export const StyledWrapperModal = styled.div`
   width: 250px;
   height: 250px;
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   background: linear-gradient(
     to bottom,
     rgb(227, 213, 255),

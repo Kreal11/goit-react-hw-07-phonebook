@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import {
   addContactThunk,
   deleteContactThunk,
@@ -46,6 +47,12 @@ const contactsSlice = createSlice({
         const contactIndex = state.contacts.items.findIndex(
           item => item.id === payload.id
         );
+        const { name, number } = state.contacts.items[contactIndex];
+        if (name !== payload.name || number !== payload.number) {
+          toast.success(
+            'Congratulations, you`ve changed contact successfully!'
+          );
+        }
         state.contacts.items[contactIndex] = payload;
         state.contacts.isLoading = false;
       })

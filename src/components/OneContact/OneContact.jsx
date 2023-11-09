@@ -2,12 +2,12 @@ import { useSelector } from 'react-redux';
 import {
   OneContactDeleteButton,
   StyledOneContactLi,
+  StyledSpanModal,
 } from './OneContact.styled';
 import PropTypes from 'prop-types';
 import { selectDeletedId, selectIsLoading } from 'redux/selectors';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/Modal/Modal';
-import styled from 'styled-components';
 
 export const OneContact = ({ id, name, number, deleteContact }) => {
   const loading = useSelector(selectIsLoading);
@@ -40,14 +40,6 @@ export const OneContact = ({ id, name, number, deleteContact }) => {
     </>
   );
 };
-
-const StyledSpanModal = styled.span`
-  cursor: pointer;
-  font-size: 16px;
-  &:hover {
-    color: white;
-  }
-`;
 
 OneContact.propTypes = {
   id: PropTypes.string.isRequired,
