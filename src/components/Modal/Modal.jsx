@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import {
+  CancelButton,
+  SaveButton,
   StyledModalForm,
   StyledWrapperModal,
   StyledWrapperOverlay,
@@ -65,10 +67,8 @@ const Modal = ({ close, name, number, id }) => {
             placeholder="Enter new phone number"
           />
           <div>
-            <button $color="green">Save</button>
-            <button $color="red" onClick={close}>
-              Cancel
-            </button>
+            <SaveButton>Save</SaveButton>
+            <CancelButton onClick={close}>Cancel</CancelButton>
           </div>
         </StyledModalForm>
       </StyledWrapperModal>

@@ -75,15 +75,31 @@ export const StyledModalForm = styled.form`
       transition: background-color 0.2s, color 0.2s;
 
       &:hover {
-        background-color: ${props =>
-          props.$color === 'green' ? 'rgb(0, 128, 0)' : 'rgb(255, 81, 0)'};
         color: white;
       }
 
       &:active {
-        background-color: rgb(190, 61, 0);
         color: white;
       }
     }
+  }
+`;
+
+export const SaveButton = styled.button`
+  &:hover {
+    background-color: rgb(0, 128, 0);
+  }
+  &:active {
+    background-color: rgb(0, 64, 0);
+  }
+`;
+
+export const CancelButton = styled.button`
+  &:hover {
+    background-color: rgb(255, 81, 0);
+  }
+
+  &:active {
+    background-color: rgb(190, 61, 0);
   }
 `;
