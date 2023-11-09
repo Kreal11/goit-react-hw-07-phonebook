@@ -43,7 +43,7 @@ export const AddContact = () => {
         <StyledAddContactInputWrapper>
           <StyledAddContactInput
             type="text"
-            {...register('name')}
+            {...register('name', { required: true })}
             id="addName"
             required
             placeholder="Enter the name"
@@ -55,7 +55,7 @@ export const AddContact = () => {
         <StyledAddContactInputWrapper>
           <StyledAddContactInput
             type="tel"
-            {...register('number')}
+            {...register('number', { required: true })}
             id="addNumber"
             placeholder="000-00-00"
             required
