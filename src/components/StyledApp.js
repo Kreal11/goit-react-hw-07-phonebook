@@ -21,7 +21,7 @@ export const StyledHeaderH1 = styled.h1`
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     50% {
-      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8);
     }
     100% {
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
