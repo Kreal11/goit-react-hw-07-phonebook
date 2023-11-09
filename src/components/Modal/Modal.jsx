@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import {
@@ -10,6 +11,8 @@ import {
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { editContactThunk } from 'redux/operations';
+
+const rootModal = document.querySelector('#modal');
 
 const Modal = ({ close, name, number, id }) => {
   const dispatch = useDispatch();
@@ -48,7 +51,7 @@ const Modal = ({ close, name, number, id }) => {
     }
   };
 
-  return (
+  return ReactDOM.createPortal(
     <StyledWrapperOverlay onClick={handleClickOut}>
       <StyledWrapperModal>
         <div>
@@ -72,7 +75,8 @@ const Modal = ({ close, name, number, id }) => {
           </div>
         </StyledModalForm>
       </StyledWrapperModal>
-    </StyledWrapperOverlay>
+    </StyledWrapperOverlay>,
+    rootModal
   );
 };
 
